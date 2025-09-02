@@ -40,8 +40,8 @@ create table order_item (
     quantity int not null default 0,
     foreign key(order_id) references orders(order_id),
     foreign key(product_id) references product(product_id),
-    index ix_order_id (order_id),
-    index ix_product_id (product_id)
+    index ix_order_id(order_id),
+    index ix_product_id(product_id)
 );
 
 create table category (
