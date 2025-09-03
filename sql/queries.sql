@@ -1,6 +1,6 @@
 -- Query 1 
 -- Vilka kunder har köpt svarta byxor i storlek 38 av SweetPants
-select distinct customer.name as black_pants
+select distinct customer.name  as customer_name
 from customer
 inner join orders on customer.customer_id = orders.customer_id
 inner join order_item on orders.order_id = order_item.order_id
