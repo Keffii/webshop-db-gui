@@ -23,24 +23,28 @@ order by product_amount;
 -- skriv ut en lista på det totala beställningsvärdet per ort där beställningsvärdet är större än 1000kr
 -- Ortnamn och värde ska visas. (det måste finnas orter i databasen där det har
 -- handlats för mindre än 1000 kr för att visa att frågan är korrekt formulerad)
-select customer.city as City, sum(product.stock_price * order_item.quantity) as Total_order_value
+select
+    customer.city as City,
+    cast(sum(product.stock_price * order_item.quantity) as decimal(6,2)) as Total_order_value
 from customer
 inner join orders on customer.customer_id = orders.customer_id
 inner join order_item on orders.order_id = order_item.order_id  
 inner join product on order_item.product_id = product.product_id
 group by customer.city
-having total_order_value > 1000
-order by total_order_value desc;
+having Total_order_value > 1000
+order by Total_order_value desc;
 
 -- Query 3 
 -- Confirm that it's working properly
-select customer.city as City, sum(product.stock_price * order_item.quantity) as Total_order_value
+select
+    customer.city as City,
+    cast(sum(product.stock_price * order_item.quantity) as decimal(6,2)) as Total_order_value
 from customer
 inner join orders on customer.customer_id = orders.customer_id
 inner join order_item on orders.order_id = order_item.order_id  
 inner join product on order_item.product_id = product.product_id
 group by customer.city
-order by total_order_value desc;
+order by Total_order_value desc;
 
 -- Query 4 Skapa en topp-5 lista av de mest sålda produkterna
 select 
@@ -58,9 +62,9 @@ limit 5;
 
 -- Query 5 Vilken månad hade du den största försäljningen?
 select date_format(orders.order_date, '%Y-%M') as order_month,
-    sum(order_item.quantity * product.stock_price) as total_sales
+    cast(sum(order_item.quantity * product.stock_price) as decimal(6,2)) as total_sales
 from orders
 join order_item on orders.order_id = order_item.order_id
 join product on order_item.product_id = product.product_id
 group by order_month
-order by total_sales desc;
+order by total_sales desc
