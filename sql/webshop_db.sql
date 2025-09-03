@@ -69,7 +69,7 @@ insert into customer(name, email, city) values
 ('Oskar Hedberg', 'oskar.hedberg@email.se', 'Uppsala');
 
 insert into category(category_name) values
-('Shirts'), -- 
+('Shirts'), -- 1
 ('Pants'), -- 2 
 ('Dresses'), -- 3 
 ('Underwear'), -- 4 
@@ -93,17 +93,27 @@ insert into brand(brand_name, description) values
 ('Lacoste', 'French luxury fashion brand'); -- 10
 
 insert into orders(customer_id, order_date) values
-(1, '2025-01-01 10:30:00'),
-(2, '2025-02-01 10:30:00'),
-(3, '2025-03-01 10:30:00'),
-(4, '2025-04-01 10:30:00'),
-(5, '2025-05-01 10:30:00'),
-(6, '2025-06-01 10:30:00'),
-(7, '2025-07-01 10:30:00'),
-(8, '2025-08-01 10:30:00'),
-(9, '2025-09-01 10:30:00'),
-(10, '2025-10-01 10:30:00'),
-(1, '2025-04-02 10:30:00');
+    (1, '2025-01-01 10:30:00'),  -- 1 Anna Svensson
+    (2, '2025-02-01 10:30:00'),  -- 2 Erik Johannson
+    (3, '2025-03-01 10:30:00'),  -- 3 Maria Lindqvist
+    (1, '2025-04-02 10:30:00'),  -- 4 Anna Svensson second order
+    (2, '2025-04-05 10:30:00'),  -- 5 Erik Johannson second order
+    (3, '2025-04-10 10:30:00'),  -- 6 Maria Lindqvist second order
+    (4, '2025-05-01 10:30:00'),  -- 7 Johan Karlsson
+    (5, '2025-05-01 10:30:00'),  -- 8 Emma Andersson
+    (6, '2025-06-01 10:30:00'),  -- 9 Lars Petersson
+    (4, '2025-06-05 10:30:00'),  -- 10 Johan Karlsson second order
+    (5, '2025-06-10 10:30:00'),  -- 11 Emma Andersson second order
+    (6, '2025-06-15 10:30:00'),  -- 12 Lars Petersson second order
+    (7, '2025-07-01 10:30:00'),  -- 13 Sofia Nilsson
+    (8, '2025-08-01 10:30:00'),  -- 14 Magnus Bergström
+    (7, '2025-08-05 10:30:00'),  -- 15 Sofia Nilsson second order
+    (8, '2025-08-10 10:30:00'),  -- 16 Magnus Bergström second order
+    (9, '2025-09-01 10:30:00'),  -- 17 Astrid Gustafsson
+    (10, '2025-10-01 10:30:00'), -- 18 Oskar Hedberg
+    (9, '2025-10-05 10:30:00'),  -- 19 Astrid Gustafsson second order
+    (10, '2025-10-10 10:30:00'); -- 20 Oskar Hedberg second order
+
 
 INSERT INTO product(brand_id, product_name, color, size, stock_quantity, stock_price) VALUES
     -- Shirts
@@ -170,24 +180,37 @@ INSERT INTO product_category(product_id, category_id) VALUES
     
     
 insert into order_item(order_id, product_id, quantity) values
-    -- Stockholm, Total: 2295kr
-	(1, 3, 1),  -- Name: Anna Svensson, Product: Casual pants, Brand: SweetPants, Color: Black, Size: 38, Quantity: 1, Price: 399
-    (2, 3, 1),  -- Name: Erik Johannson, Product: Casual pants, Brand: SweetPants, Color: Black, Size: 38, Quantity: 1, Price: 399
-    (3, 1, 1),  -- Name: Maria Lindqvist, Product: Hoodie, Brand: H&M, Color: Grey, Size: L, Quantity: 1, Price: 399
-    (11, 5, 1), -- Name: Anna Svensson, Product: Business dress, Brand: H&M, Color: Navy blue, Size: M, Quantity: 1, Price: 1099
+    -- Stockholm, Total: 2293.00kr
+    (1, 3, 1),  -- Name: Anna Svensson, Product: Casual pants, Brand: SweetPants, Color: Black, Size: 38, Quantity: 1, Price: 399.00
+    (1, 1, 1),  -- Name: Anna Svensson, Product: Hoodie, Brand: H&M, Color: Grey, Size: L, Quantity: 1, Price: 399.00
+    (2, 3, 2),  -- Name: Erik Johannson, Product: Casual pants, Brand: SweetPants, Color: Black, Size: 38, Quantity: 2, Price: 399.00
+    (3, 1, 1),  -- Name: Maria Lindqvist, Product: Hoodie, Brand: H&M, Color: Grey, Size: L, Quantity: 1, Price: 399.00
+    (4, 5, 1),  -- Name: Anna Svensson, Product: Business dress, Brand: H&M, Color: Navy blue, Size: M, Quantity: 1, Price: 1099.00
+    (5, 3, 1),  -- Name: Erik Johannson, Product: Casual pants, Brand: SweetPants, Color: Black, Size: 38, Quantity: 1, Price: 399.00
+    (6, 1, 1),  -- Name: Maria Lindqvist, Product: Hoodie, Brand: H&M, Color: Grey, Size: L, Quantity: 1, Price: 399.00
 
-    -- Gothenburg, Total: 2697kr
-    (4, 9, 1), -- Name: Johan Karlsson, Product: Running shoes, Brand: Nike, Color: White, Size: 42, Quantity: 1, Price: 1299
-    (5, 11, 1), -- Name: Emma Andersson, Product: Bomber jacket, Brand: Adidas, Color: Blue, Size: L, Quantity: 1, Price: 899
-    (6, 4, 1), -- Name: Lars Petersson, Product: Chinos, Brand: Zara, Color: Blue, Size: 32, Quantity: 1, Price: 499
+    -- Gothenburg, Total: 3696.00kr
+    (7, 9, 1),  -- Name: Johan Karlsson, Product: Running shoes, Brand: Nike, Color: White, Size: 42, Quantity: 1, Price: 1299.00
+    (8, 11, 1), -- Name: Emma Andersson, Product: Bomber jacket, Brand: Adidas, Color: Blue, Size: L, Quantity: 1, Price: 899.00
+    (9, 4, 1),  -- Name: Lars Petersson, Product: Chinos, Brand: Zara, Color: Blue, Size: 32, Quantity: 1, Price: 499.00
+    (10, 9, 1), -- Name: Johan Karlsson, Product: Running shoes, Brand: Nike, Color: White, Size: 42, Quantity: 1, Price: 1299.00
+    (11, 11, 1),-- Name: Emma Andersson, Product: Bomber jacket, Brand: Adidas, Color: Blue, Size: L, Quantity: 1, Price: 899.00
+    (12, 4, 1), -- Name: Lars Petersson, Product: Chinos, Brand: Zara, Color: Blue, Size: 32, Quantity: 1, Price: 499.00
 
-    -- Malmo, Total: 1598kr
-    (7, 2, 1), -- Name: Sofia Nilsson, Product: T-shirt, Brand: Adidas, Color: Black, Size: M, Quantity: 1, Price: 299
-    (8, 12, 1), -- Name: Magnus Bergström, Product: Down jacket, Brand: Uniqlo, Color: Black, Size: XL, Quantity: 1, Price: 1299
+    -- Malmo, Total: 2196.00kr
+    (13, 2, 2),  -- Name: Sofia Nilsson, Product: T-shirt, Brand: Adidas, Color: Black, Size: M, Quantity: 2, Price: 299.00
+    (14, 12, 1), -- Name: Magnus Bergström, Product: Down jacket, Brand: Uniqlo, Color: Black, Size: XL, Quantity: 1, Price: 1299.00
+    (15, 2, 1),  -- Name: Sofia Nilsson, Product: T-shirt, Brand: Adidas, Color: Black, Size: M, Quantity: 1, Price: 299.00
+    (16, 12, 1), -- Name: Magnus Bergström, Product: Down jacket, Brand: Uniqlo, Color: Black, Size: XL, Quantity: 1, Price: 1299.00
 
-    -- Uppsala, Total: 288kr
-    (9, 13, 1), -- Name: Astrid Gustafsson, Product: Ankle socks, Brand: Nike, Color: White, Size: 39-42, Quantity: 1, Price: 89
-    (10, 14, 1); -- Name: Oskar Hedberg, Product: Knee socks, Brand: Calvin Klein, Color: Black, Size: 43-46, Quantity: 1, Price: 199
+    -- Uppsala, Total: 586.00kr
+    (17, 13, 1), -- Name: Astrid Gustafsson, Product: Ankle socks, Brand: Nike, Color: White, Size: 39-42, Quantity: 1, Price: 89.00
+    (18, 14, 1), -- Name: Oskar Hedberg, Product: Knee socks, Brand: Calvin Klein, Color: Black, Size: 43-46, Quantity: 1, Price: 199.00
+    (19, 13, 1), -- Name: Astrid Gustafsson, Product: Ankle socks, Brand: Nike, Color: White, Size: 39-42, Quantity: 1, Price: 89.00
+    (20, 8, 2);  -- Name: Oskar Hedberg, Product: Boxers, Brand: Calvin Klein, Color: Black, Size: M, Quantity: 2, Price: 149.00
+
+
+
 
     
 set sql_safe_updates = 0;
