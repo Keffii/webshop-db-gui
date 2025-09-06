@@ -10,7 +10,9 @@ Create, view, and manipulate customers, brands, products, orders, and categories
 - [Overview](#overview)  
 - [Tech Stack](#tech-stack)  
 - [Prerequisites](#prerequisites)
-- [Gui Preview](#gui-preview)
+- [ER Diagram](#er-diagram)
+- [GUI Preview](#gui-preview)
+
 
 ---
 ##  Overview
@@ -45,6 +47,12 @@ Query 5: Identify the month with the highest total sales revenue
 
 - Java JDK 
 - MySQL
+---
 
-## Gui Preview
+## ER Diagram
+![Alt text](er_diagram/webshop_db.png)
+
+---
+
+## GUI Preview
 <img width="786" height="693" alt="Image" src="https://github.com/user-attachments/assets/715523c2-6b91-4e15-8022-55a87740d2ec" />
